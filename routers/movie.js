@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const cinema = require("../model/movies.js")
+const cinema = require("../model/movies")
 
 // get call
 
@@ -10,7 +10,7 @@ router.get("/api/movies" , (req, res)=>{
         if(data == ""){
             res.send("malumot yoq")
         } else {
-            res.send(data)
+            res.json(data)
         }
     })
 })
