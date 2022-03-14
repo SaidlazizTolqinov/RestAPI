@@ -76,6 +76,16 @@ router.get("/api/movies/top10/cinema" , (req, res)=>{
 })
 
 
+router.get("/api/movies/between/:start_year/:end_year" , (req, res)=>{
+    const {start_year , end_year} = req.params;
+    const promise=cinema.find({year: {"$gte": (start_year) , "$lte" : (end_year)}})
+    promise.then(data=>{
+        res.json(data)
+    }).catch(err=>{
+        console.log("ishlamadi");
+    })
+})
+
 
 
 module.exports = router
